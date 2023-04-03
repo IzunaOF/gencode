@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Montserrat:wght@700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --mintBlue: #225ae7;
+  --lightmintblue: #10a9e1;
+}
+html,
+body,
+#root,
+.app {
+  height: 100%;
+  width: 100%;
+  font-family: "DM Sans", sans serif;
+  @apply text-black;
+}
+* {
+  outline: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.rebelde {
+  background-color: black;
+  width: 50px;
+  height: 50px;
+}
+
+select {
+  color: var(--mintBlue);
+  letter-spacing: 2px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  position: absolute;
+  padding: 0 10px;
+  border: 1px solid #bbb7b0;
+  border-radius: 12px;
+  margin-left: 8px;
+  cursor: pointer;
+  font-size: 17px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-user-select:text;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: left !important;
+}
+
+select:hover {
+  color: var(--lightmintblue);
+  border-color: var(--lightmintblue);
+}
+input[type=number]::-webkit-inner-spin-button { 
+  position: absolute;
+  height: max-content;
+  margin: 0;
+  padding: 15px 0;
+  right: 10px;
+  top: -5px;
+  box-shadow: 0 0 5px 0 black;
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+input[type="checkbox"]:checked {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 10px;
+  border: none;
+  border-bottom: 2px solid rgb(13, 164, 13);
+  border-left: 2px solid rgb(31, 188, 31);
+  transform: rotate(-60deg) translate(0, -7px) scale(100%);
+  animation: pulse 0.2s cubic-bezier(0, 0.45, 0.657, 1.158);
+}
+
+@keyframes pulse {
+  to {
+    transform: rotate(-60deg) translate(1px, -5px) scale(135%)
+      skew(-12deg, 7deg);
+  }
+}
+input[type="checkbox"]:not(:checked) {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  width: 15px;
+  height: 15px;
+  border: none;
+  border-left: 2px solid rgb(255, 47, 0);
+  transform: rotate(-45deg) translate(3px, -3px);
+  animation: vert 0.2s cubic-bezier(0.057, 0.745, 0.657, 0.42);
+}
+input[type="checkbox"]:not(:checked)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 15px;
+  height: 10px;
+  border: none;
+  border-bottom: 2px solid rgb(255, 8, 0);
+  transform: rotate(180deg) translate(8px, -7px);
+}
+@keyframes vert {
+  to {
+    transform: rotate(-60deg) translate(1px, -5px) scale(135%)
+      skew(-5deg, 16deg);
+  }
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  display: inline-block;
+  width: 200px;
+  height: 0.2em;
+  border-radius: 5px;
+  background-color: var(--mintBlue);
+  outline: none;
+  z-index: 1;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: var(--lightmintblue);
+}
