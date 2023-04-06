@@ -3,15 +3,12 @@ import { CodeOptions } from "./codeSettings";
 import { Code } from "./codeGenerator";
 import { RootState } from "@/app/store";
 
-export type Inserts = {
-  target: "char" | "number" | "special" | "uppercase";
-};
-export type IncludeLetterCase = {
-  letters: "lowercase" | "uppercase" | "all";
-};
-type IncludeOnly = {
-  others: "number" | "special" | false;
-};
+export type Inserts ="char" | "number" | "special" | "uppercase";
+;
+export type IncludeLetterCase = "lowercase" | "uppercase" | "all";
+
+type IncludeOnly = "number" | "special" | false;
+;
 const initialState: CodeOptions = {
   initial: "char",
   quantity: {
@@ -35,7 +32,7 @@ const codeGeneratorSlice = createSlice({
   initialState,
   reducers: {
     setInitalValue: (state, action: PayloadAction<Inserts>) => {
-      state.initial = action.payload.target;
+      state.initial = action.payload;
     },
     setNumberAmount: (state, action: PayloadAction<number>) => {
       state.quantity.numbers = action.payload;
@@ -56,10 +53,10 @@ const codeGeneratorSlice = createSlice({
       state.includes.special = action.payload;
     },
     setOnlyLetterCase: (state, action: PayloadAction<IncludeLetterCase>) => {     
-      state.includes.only.letters = action.payload.letters;  
+      state.includes.only.letters = action.payload;  
     },
     setOnly: (state, action: PayloadAction<IncludeOnly>) => {
-      state.includes.only.others = action.payload.others;
+      state.includes.only.others = action.payload;
     },
     generate: (state) => {
       state.code = new Code(state).getCode();

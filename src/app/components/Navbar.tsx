@@ -5,7 +5,6 @@ import { setUserMode } from "@/app/userSlice";
 import darkIconTheme from "@/assets/darkIconTheme.svg";
 import lightIconTheme from "@/assets/lightIconTheme.svg";
 
-
 type PageName = {
   page: string;
 };
@@ -65,8 +64,8 @@ const Navbar = ({
   const flexBTW = `flex items-center justify-between`;
   return (
     <nav
-      className={`${flexBTW} z-10 fixed w-full ${
-        isOnTop ? "bg-transparent" : 'bg-orange-950'
+      className={`${flexBTW} fixed z-10 w-full ${
+        isOnTop ? "bg-transparent" : "bg-orange-950"
       }`}
     >
       <div className={`${flexBTW} h-max w-full px-10 py-[1.5rem]`}>
@@ -75,6 +74,18 @@ const Navbar = ({
         </div>
         <div>
           <div className={`${flexBTW} text-1xl w-full gap-1`}>
+            <button
+              type="button"
+              className={`${flexBTW} mr-12 h-6 w-6 text-xs`}
+              onClick={() => dispatch(setUserMode())}
+            >
+              {userTheme() === "light" ? (
+                <img src={darkIconTheme} alt="dark" />
+              ) : (
+                <img src={lightIconTheme} alt="light" />
+              )}
+            </button>
+
             <InnerLink
               page="Home"
               currentPage={currentPage}

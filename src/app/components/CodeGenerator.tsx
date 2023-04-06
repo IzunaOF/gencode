@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "@/hooks/appHook";
+import { useState, useEffect } from "react";
+import { useAppDispatch, useAppSelector, userTheme } from "@/hooks/appHook";
 import {
   getCode,
-  codeSettings,
   generate,
   setIncludeLetter,
   setIncludeNumber,
@@ -15,20 +14,19 @@ import { RangeInput } from "./RangeInputs";
 const CodeGenerator = () => {
   const code = useAppSelector(getCode);
   const dispatch = useAppDispatch();
+  const letterColor:string = userTheme() === "light" ? `text-white` : `text-black`;
   const lettersType = ["all", "lowercase", "uppercase"];
-
-  const [letterCase, setLetterCase] = useState<IncludeLetterCase>({
-    letters: "all",
-  });
+  const [letterCase, setLetterCase] = useState<IncludeLetterCase>("all");
 
   useEffect(() => {
     dispatch(setOnlyLetterCase(letterCase));
-  }, [letterCase.letters]);
+  }, [letterCase]);
 
   const flexCenter = `flex items-center justify-center`;
   return (
-    <section id="home"
-      className={`options flex flex-col items-center gap-8 bg-transparent pt-44`}
+    <section
+      id="home"
+      className={`options flex flex-col items-center gap-8 bg-transparent pt-44 ${letterColor}`}
     >
       <span className={`${flexCenter} text-5xl`}>Set your own password</span>
       <div
@@ -51,14 +49,14 @@ const CodeGenerator = () => {
           </div>
         </div>
         <div className={`col-span-5 row-span-6`}>
-          <RangeInput />
+          <RangeInput/>
         </div>
         <div className={`col-span-5 row-span-4`}>
           <span className={`${flexCenter} py-4 text-2xl font-bold`}>
             Include
           </span>
           <div className={`${flexCenter}`}>
-            <div className={`item-start flex flex-col text-xl gap-2`}>
+            <div className={`item-start flex flex-col gap-2 text-xl`}>
               <div>
                 <input
                   type="checkbox"
@@ -73,10 +71,9 @@ const CodeGenerator = () => {
                     onChange={(e) => {
                       const ev = e.target.value;
                       const i = lettersType.indexOf(ev);
-                      setLetterCase({
-                        letters:
-                          i === 0 ? "all" : i === 1 ? "lowercase" : "uppercase",
-                      });
+                      setLetterCase(
+                        i === 0 ? "all" : i === 1 ? "lowercase" : "uppercase"
+                      );
                     }}
                   >
                     {lettersType.map((type) => {

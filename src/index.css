@@ -2,6 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 :root {
   --mintBlue: #225ae7;
   --lightmintblue: #10a9e1;

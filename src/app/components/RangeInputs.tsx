@@ -1,4 +1,4 @@
-import { useAppSelector, useAppDispatch } from "@/hooks/appHook";
+import { useAppSelector, useAppDispatch, userTheme } from "@/hooks/appHook";
 import { RootState } from "../store";
 import {
   setLetterAmount,
@@ -20,6 +20,7 @@ type RangeInput = {
   rangeValue: number;
 };
 export const RangeInput = () => {
+  const letterColor:string = userTheme() === "light" ? `text-white` : `text-black`;
   const flexCenter = `flex items-center justify-center relative`;
   const styledInputs = `w-12 mr-3 pt-4 text-right bg-transparent text-black text-4xl`;
   const dispatch = useAppDispatch();
@@ -29,7 +30,7 @@ export const RangeInput = () => {
       <div className={`flex text-amber-800 py-10 flex-col gap-4`}>
         <div className={`${flexCenter}`} onMouseUp={() => dispatch(generate())}>
           <input
-            className={`${styledInputs}`}
+            className={`${styledInputs} ${letterColor}`}
             type="number"
             id="qtd-letters"
             value={settings.quantity.letters}
@@ -52,7 +53,7 @@ export const RangeInput = () => {
         </div>
         <div className={`${flexCenter}`} onMouseUp={() => dispatch(generate())}>
           <input
-            className={`${styledInputs}`}
+            className={`${styledInputs} ${letterColor}`}
             type="number"
             id="qtd-numbers"
             placeholder="0"
@@ -76,7 +77,7 @@ export const RangeInput = () => {
         </div>
         <div className={`${flexCenter}`} onMouseUp={() => dispatch(generate())}>
           <input
-            className={`${styledInputs}`}
+            className={`${styledInputs} ${letterColor}`}
             type="number"
             id="qtd-special"
             placeholder="0"
