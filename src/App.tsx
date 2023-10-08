@@ -5,7 +5,7 @@ import Layout from "./app/components/Layout";
 import { userTheme, useAppSelector } from "./hooks/appHook";
 
 import { CurrentPage } from "./shared/types/navRoutes";
-import HowToUse from "./app/components/HowToUse";
+
 
 function App() {
   // const theme = useMemo(

@@ -42,7 +42,7 @@ type ButtonAnchor = {
 const ActionButton = ({ children, setSelectedPage }: ButtonAnchor) => {
   return (
     <AnchorLink
-      className={`rounded-md bg-yellow-10 px-7 py-2 text-dark-er`}
+      className={`rounded-md bg-yellow-10 px-2 py-1 text-dark-er`}
       onClick={() => setSelectedPage(CurrentPage.Vault)}
       href={`#${CurrentPage.Vault}`}
     >
@@ -65,18 +65,18 @@ const Navbar = ({
   return (
     <nav
       className={`${flexBTW} fixed z-10 w-full ${
-        isOnTop ? "bg-transparent" : "bg-orange-950"
+        isOnTop ? "bg-transparent" : "bg-slate-500"
       }`}
     >
-      <div className={`${flexBTW} h-max w-full px-10 py-[1.5rem]`}>
+      <div className={`${flexBTW} h-max w-full px-5 py-[.8rem]`}>
         <div className={`${flexBTW} gap-7`}>
-          <span className={`text-4xl text-gray-400`}>Code Generator</span>
+          <span className={`text-1xl text-gray-400`}>Code Generator</span>
         </div>
         <div>
-          <div className={`${flexBTW} text-1xl w-full gap-1`}>
+          <div className={`${flexBTW} w-full gap-1 text-[9px]`}>
             <button
               type="button"
-              className={`${flexBTW} mr-12 h-6 w-6 text-xs`}
+              className={`${flexBTW} mr-12 h-6 w-6`}
               onClick={() => dispatch(setUserMode())}
             >
               {userTheme() === "light" ? (

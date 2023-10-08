@@ -16,8 +16,7 @@ const Layout = ({ currentPage, setCurrentPage }: PageSelector) => {
         setMobileMenu(true);
         setCurrentPage(CurrentPage.Home);
       }
-      if (window.scrollY > 245) setMobileMenu(false);
-
+      if (window.scrollY > 50) setMobileMenu(false);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);

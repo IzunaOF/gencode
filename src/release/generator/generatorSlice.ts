@@ -3,12 +3,10 @@ import { CodeOptions } from "./codeSettings";
 import { Code } from "./codeGenerator";
 import { RootState } from "@/app/store";
 
-export type Inserts ="char" | "number" | "special" | "uppercase";
-;
+export type Inserts = "char" | "number" | "special" | "uppercase";
 export type IncludeLetterCase = "lowercase" | "uppercase" | "all";
 
 type IncludeOnly = "number" | "special" | false;
-;
 const initialState: CodeOptions = {
   initial: "char",
   quantity: {
@@ -52,8 +50,8 @@ const codeGeneratorSlice = createSlice({
     setIncludeSpecial: (state, action: PayloadAction<boolean>) => {
       state.includes.special = action.payload;
     },
-    setOnlyLetterCase: (state, action: PayloadAction<IncludeLetterCase>) => {     
-      state.includes.only.letters = action.payload;  
+    setOnlyLetterCase: (state, action: PayloadAction<IncludeLetterCase>) => {
+      state.includes.only.letters = action.payload;
     },
     setOnly: (state, action: PayloadAction<IncludeOnly>) => {
       state.includes.only.others = action.payload;

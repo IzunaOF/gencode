@@ -19,15 +19,18 @@ type RangeInput = {
   value: number;
   rangeValue: number;
 };
+
 export const RangeInput = () => {
-  const letterColor:string = userTheme() === "light" ? `text-white` : `text-black`;
+  const letterColor: string =
+    userTheme() === "light" ? `text-white` : `text-black`;
   const flexCenter = `flex items-center justify-center relative`;
-  const styledInputs = `w-12 mr-3 pt-4 text-right bg-transparent text-black text-4xl`;
+  const styledInputs = `w-12 mr-3 pt-4 text-right bg-transparent text-black text-md`;
   const dispatch = useAppDispatch();
   const settings = useAppSelector(codeSettings);
 
-  return <div className={`flex justify-center flex-col`}>
-      <div className={`flex text-amber-800 py-10 flex-col gap-4`}>
+  return (
+    <div className={`flex flex-col justify-center text-md`}>
+      <div className={`flex flex-col gap-1 py-2 text-amber-800`}>
         <div className={`${flexCenter}`} onMouseUp={() => dispatch(generate())}>
           <input
             className={`${styledInputs} ${letterColor}`}
@@ -35,10 +38,11 @@ export const RangeInput = () => {
             id="qtd-letters"
             value={settings.quantity.letters}
             placeholder="0"
+            min={0}
             max={25}
             onChange={(e) => dispatch(setLetterAmount(Number(e.target.value)))}
           />
-          <div className={`flex flex-col gap-2`}>
+          <div className={`flex flex-col gap-2 text-xs`}>
             <label htmlFor="qtd-letters">Letters</label>
             <input
               type="range"
@@ -62,7 +66,7 @@ export const RangeInput = () => {
             value={settings.quantity.numbers}
             onChange={(e) => dispatch(setNumberAmount(Number(e.target.value)))}
           />
-          <div className={`flex flex-col gap-2`}>
+          <div className={`flex flex-col gap-2 text-xs`}>
             <label htmlFor="qtd-numbers">Numbers</label>
             <input
               type="range"
@@ -86,7 +90,7 @@ export const RangeInput = () => {
             value={settings.quantity.special}
             onChange={(e) => dispatch(setSpecialAmount(Number(e.target.value)))}
           />
-          <div className={`flex flex-col gap-2`}>
+          <div className={`flex flex-col gap-2 text-xs`}>
             <label htmlFor="qtd-special">Special chars</label>
             <input
               type="range"
@@ -104,4 +108,5 @@ export const RangeInput = () => {
         </div>
       </div>
     </div>
+  );
 };

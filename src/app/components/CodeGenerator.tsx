@@ -14,7 +14,8 @@ import { RangeInput } from "./RangeInputs";
 const CodeGenerator = () => {
   const code = useAppSelector(getCode);
   const dispatch = useAppDispatch();
-  const letterColor:string = userTheme() === "light" ? `text-white` : `text-black`;
+  const letterColor: string =
+    userTheme() === "light" ? `text-white` : `text-black`;
   const lettersType = ["all", "lowercase", "uppercase"];
   const [letterCase, setLetterCase] = useState<IncludeLetterCase>("all");
 
@@ -26,37 +27,37 @@ const CodeGenerator = () => {
   return (
     <section
       id="home"
-      className={`options flex flex-col items-center gap-8 bg-transparent pt-44 ${letterColor}`}
+      className={`options flex flex-col items-center gap-8 bg-transparent pt-24 ${letterColor}`}
     >
-      <span className={`${flexCenter} text-5xl`}>Set your own password</span>
+      <span className={`${flexCenter} text-3xl`}>Set your own password</span>
       <div
-        className={`grid h-full min-w-min grid-cols-10 grid-rows-6 items-center gap-2 p-4`}
+        className={`grid h-full min-w-min grid-cols-10 grid-rows-6 items-center gap-2 p-1`}
       >
         <div className={`${flexCenter} col-span-10 row-span-2 w-full flex-col`}>
           <div
-            className={`relative flex h-full w-full items-center justify-end gap-6 pr-12 `}
+            className={`relative flex h-full w-full items-center justify-end gap-6 pr-36 `}
           >
-            <span className={`absolute right-36 w-max text-3xl text-red-10`}>
+            <span className={`absolute right-52 w-max text-md text-red-10`}>
               {code}
             </span>
             <button
               type="button"
               onClick={() => dispatch(generate())}
-              className={`my-4 rounded-lg border-2 bg-light-mintblue px-3 py-1 text-2xl text-white hover:border-black hover:text-black`}
+              className={`my-4 rounded-lg border bg-light-mintblue px-3 py-1 text-[11px] text-white hover:border-black hover:text-black`}
             >
               New
             </button>
           </div>
         </div>
         <div className={`col-span-5 row-span-6`}>
-          <RangeInput/>
+          <RangeInput />
         </div>
         <div className={`col-span-5 row-span-4`}>
-          <span className={`${flexCenter} py-4 text-2xl font-bold`}>
+          <span className={`${flexCenter} py-3 text-xl`}>
             Include
           </span>
           <div className={`${flexCenter}`}>
-            <div className={`item-start flex flex-col gap-2 text-xl`}>
+            <div className={`item-start flex flex-col gap-2 text-sm`}>
               <div>
                 <input
                   type="checkbox"

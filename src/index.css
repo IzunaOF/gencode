@@ -37,12 +37,12 @@ select {
   appearance: none;
   background-color: transparent;
   position: absolute;
-  padding: 0 10px;
+  padding: 0 5px;
   border: 1px solid #bbb7b0;
-  border-radius: 12px;
+  border-radius: 3px;
   margin-left: 8px;
   cursor: pointer;
-  font-size: 17px;
+  font-size: 13px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   -webkit-user-select:text;
@@ -70,8 +70,8 @@ input[type=number]::-webkit-inner-spin-button {
 input[type="checkbox"]:checked {
   -webkit-appearance: none;
   appearance: none;
-  width: 15px;
-  height: 10px;
+  width: 10px;
+  height: 5px;
   border: none;
   border-bottom: 2px solid rgb(13, 164, 13);
   border-left: 2px solid rgb(31, 188, 31);
@@ -89,11 +89,11 @@ input[type="checkbox"]:not(:checked) {
   -webkit-appearance: none;
   appearance: none;
   position: relative;
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
   border: none;
   border-left: 2px solid rgb(255, 47, 0);
-  transform: rotate(-45deg) translate(3px, -3px);
+  transform: rotate(-45deg) translate(1px, -4px);
   animation: vert 0.2s cubic-bezier(0.057, 0.745, 0.657, 0.42);
 }
 input[type="checkbox"]:not(:checked)::after {
@@ -101,11 +101,11 @@ input[type="checkbox"]:not(:checked)::after {
   position: absolute;
   left: 0;
   top: 0;
-  width: 15px;
-  height: 10px;
+  width: 10px;
+  height: 5px;
   border: none;
   border-bottom: 2px solid rgb(255, 8, 0);
-  transform: rotate(180deg) translate(8px, -7px);
+  transform: rotate(180deg) translate(6px, -4px);
 }
 @keyframes vert {
   to {
@@ -118,7 +118,7 @@ input[type="range"] {
   appearance: none;
   display: inline-block;
   width: 200px;
-  height: 0.2em;
+  height: 0.1em;
   border-radius: 5px;
   background-color: var(--mintBlue);
   outline: none;
@@ -129,7 +129,7 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   background-color: var(--lightmintblue);
 }

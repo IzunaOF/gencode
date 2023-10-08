@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 
-type User ={
+type User = {
   userId: number;
   firstName: string;
   lastName: string;
   email: string;
   styleMode: "dark" | "light";
-}
+};
 
 const initialState: User = {
   userId: 1,
